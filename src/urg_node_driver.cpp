@@ -555,6 +555,10 @@ void UrgNode::scanThread()
       if (error_count_ > error_limit_)
       {
         ROS_ERROR_THROTTLE(10.0, "Error count exceeded limit, reconnecting.");
+
+        // send LiDAR reboot cmd
+        urg_reboot(&urg_)
+
         urg_.reset();
         ros::Duration(2.0).sleep();
 
