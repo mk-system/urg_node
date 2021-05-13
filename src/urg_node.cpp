@@ -568,7 +568,8 @@ void UrgNode::scanThread()
 
         // send LiDAR reboot cmd
         // UrgNetwork/urg_library/blob/master/current/src/urg_sensor.c
-        urg_reboot(&urg_)
+        sendCommand("RB\n");
+        sendCommand("RB\n");
 
         urg_.reset();
         rclcpp::sleep_for(std::chrono::seconds(2));
