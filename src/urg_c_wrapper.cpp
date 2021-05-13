@@ -201,6 +201,12 @@ URGCWrapper::~URGCWrapper()
   urg_close(&urg_);
 }
 
+void URGCWrapper::executeReboot()
+{
+  sendCommand("RB\n");
+  sendCommand("RB\n");
+}
+
 bool URGCWrapper::grabScan(sensor_msgs::msg::LaserScan & msg)
 {
   msg.header.frame_id = frame_id_;

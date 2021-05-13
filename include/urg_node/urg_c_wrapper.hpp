@@ -179,6 +179,8 @@ public:
 
   rclcpp::Duration computeLatency(size_t num_measurements);
 
+  void executeReboot();
+
   bool grabScan(sensor_msgs::msg::LaserScan & msg);
 
   bool grabScan(sensor_msgs::msg::MultiEchoLaserScan & msg);
