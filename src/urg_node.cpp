@@ -565,6 +565,11 @@ void UrgNode::scanThread()
       // Reestablish connection if things seem to have gone wrong.
       if (error_count_ > error_limit_) {
         RCLCPP_ERROR(this->get_logger(), "Error count exceeded limit, reconnecting.");
+
+        // send LiDAR reboot cmd
+        // UrgNetwork/urg_library/blob/master/current/src/urg_sensor.c
+        urg_reboot(&urg_)
+
         urg_.reset();
         rclcpp::sleep_for(std::chrono::seconds(2));
 
