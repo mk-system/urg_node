@@ -204,7 +204,9 @@ URGCWrapper::~URGCWrapper()
 void URGCWrapper::executeReboot()
 {
   sendCommand("RB\n");
+  rclcpp::sleep_for(std::chrono::seconds(0.2));
   sendCommand("RB\n");
+  urg_close(&urg_);
 }
 
 bool URGCWrapper::grabScan(sensor_msgs::msg::LaserScan & msg)
